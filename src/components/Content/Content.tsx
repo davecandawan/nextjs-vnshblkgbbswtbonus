@@ -16,11 +16,6 @@ const YotpoReview = dynamic(() => import('../Yotpo/YotpoReview').then(mod => mod
 });
 
 const Content: React.FC = () => {
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const newUrl = 'https://vnsh.com/pages/vnshblackbogogbb?' + params.toString();
-    window.location.href = newUrl;
-  }, []);
   return (
     <div className="min-h-screen bg-[url('/bg.webp')] bg-cover bg-fixed bg-repeat bg-center">
       <div className="w-full bg-[url('/bg.webp')] bg-cover bg-fixed bg-repeat bg-center">
@@ -183,7 +178,23 @@ const Content: React.FC = () => {
               </div>
             </div>
           </div>
-
+          <header className="text-center pb-1 -mb-6 md:mb-0 md:pt-1">
+            <h1 className="text-3xl sm:text-3xl md:text-[46px] font-medium leading-[1] md:leading-tight mb-4 px-2">
+              <div className={`font-jawbreak uppercase ${primaryFont.className}`}>
+                Free With Your Order <span className="text-[#ff0000] line-through">$59.97</span>
+              </div>
+            </h1>
+          </header>
+          <div className="w-full md:w-[80%] mx-auto max-w-[1120px] py-5 px-0">
+            <Image
+              src="/contentimages/PS-SWTDesktop.webp"
+              alt="PS SWT Bonus"
+              className="w-full h-auto"
+              width={1120}
+              height={600}
+              priority
+            />
+          </div>
           <header id="benefits" className="text-center pb-1 -mb-6 md:mb-0 md:pt-1">
             <h1 className="text-3xl sm:text-3xl md:text-[46px] font-medium leading-[1] md:leading-tight mb-4 px-2">
               <div className={`font-jawbreak uppercase ${primaryFont.className}`}>
@@ -277,14 +288,109 @@ const Content: React.FC = () => {
               priority
             />
           </div>
-          <header className="text-center pt-2 pb-1 -mb-6 md:mb-0 md:py-4">
+          <header id="benefits" className="text-center pb-1 -mb-6 md:mb-0 md:pt-1">
+            <h1 className="text-3xl sm:text-3xl md:text-[46px] font-medium leading-[1] md:leading-tight mb-0 px-2">
+              <div className={`font-jawbreak uppercase ${primaryFont.className}`}>
+                Free With Your Order <span className="text-[#ff0000] line-through">$59.97</span>
+              </div>
+            </h1>
+          </header>
+          <div className="w-full md:w-[80%] mx-auto max-w-[1120px] py-5 px-0">
+            <Image
+              src="/contentimages/PS-SWTDesktop.webp"
+              alt="PS SWT Bonus"
+              className="w-full h-auto"
+              width={1120}
+              height={600}
+              priority
+            />
+          </div>
+          <div className="space-y-4 text-xl leading-tight md:text-xl md:py-4 py-4 font-inter">
+            <p className="text-lg !leading-tight mb-4 text-center font-semibold">
+              The Pain Safari Shockwave Torch a Powerful Stun Flashlight
+            </p>
+          </div>
+          <div className="space-y-4 text-xl leading-tight md:text-xl md:py-4 py-4 font-inter">
+            <p className="text-lg !leading-tight mb-4">
+              😱 <span className="font-bold">A 9,000 Volt, 1.5 microcoulombs Stun Flashlight:</span>{' '}
+              This powerful self defense flashlight is so powerful The National Institute of Justice
+              said it will cause “intolerable pain” for anyone unluck enough to get hit by it!
+            </p>
+            <p className="text-lg !leading-tight mb-4">
+              🔆 <span className="font-bold">Nice and Bright 110 Lumen LED:</span> A 110 lumen LED
+              made to last 100,000 hours will give your bright, dependable light for any
+              circumstances.
+            </p>
+            <p className="text-lg !leading-tight mb-4">
+              🪶 <span className="font-bold">Lightweight and Portable:</span> The rechargeable
+              flashlight is compact, lightweight which makes it easy to carry in your pocket, purse,
+              or glovebox.
+            </p>
+            <p className="text-lg !leading-tight mb-4 flex flex-row items-start gap-2 text-left">
+              <span>
+                <Image
+                  src="/contentimages/Icon4.avif"
+                  alt="Built Like a Tank Icon"
+                  width={46}
+                  height={18}
+                  className="inline-block w-[46px] h-[18px] sm:w-[46px] sm:h-[18px] mr-2"
+                  style={{ minWidth: 46, minHeight: 26 }}
+                />
+                <span className="font-bold">Built Like a Tank:</span> Built from tough
+                aircraft-grade aluminum, it will withstand years of heavy use.
+              </span>
+            </p>
+            <p className="text-lg !leading-tight !mb-8">
+              🦺 <span className="font-bold">It’s Got a Safety Switch:</span> Keep yourself safe
+              from accidental shocks with a built-in safety!
+            </p>
+          </div>
+          {/* Testimonial Section */}
+          <div className="max-w-4xl mx-auto mb-8 p-4 pt-2 bg-[#f9f9f9] rounded-lg shadow-sm border border-[#ddd]">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+              <div className="relative">
+                <div className="relative w-14 h-14 sm:w-16 sm:h-16">
+                  <Image
+                    src="/contentimages/SWTTestimonial.webp"
+                    alt="Katherine B."
+                    fill
+                    className="rounded-full object-cover"
+                    sizes="(max-width: 768px) 56px, 64px"
+                  />
+                </div>
+                <div className="absolute -bottom-1 -right-1 bg-[#2f78c9] text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                  <span className="font-extrabold text-[14px]">✓</span>
+                </div>
+              </div>
+              <div className="text-center sm:text-left min-w-[100px]">
+                <div className="font-bold">Katherine B.</div>
+                <div className="text-[13px] text-[#555] mb-1">Verified Buyer</div>
+              </div>
+              <div className="text-center sm:text-left">
+                <div className="text-lg font-semibold mb-0 font-inter">Top Review</div>
+
+                <div className="text-yellow-400 text-xl">★★★★★</div>
+
+                <span className="font-semibold text-[16px] mb-1 block font-inter">
+                  A surprise if something or someone is following me
+                </span>
+
+                <span className="text-[14px] text-[#555] leading-tight block font-inter">
+                  "These flash lights are amazing. I bought 5 so you can guess what the kids are
+                  getting in their stockings this year! (All kids are adults) I feel safe with this
+                  attached to my purse with a carbineer"
+                </span>
+              </div>
+            </div>
+          </div>
+          <header className="text-center pt-2 pb-1 -mb-6 md:mb-0 md:py-10">
             <h1 className="text-3xl sm:text-3xl md:text-[42px] font-medium leading-[1] md:leading-tight mb-0 px-2">
               <div className={`font-jawbreak uppercase ${primaryFont.className}`}>
                 Our Commitment to you...
               </div>
             </h1>
           </header>
-          <header className="text-center pt-2 pb-1 -mb-6 md:mb-0 md:py-4">
+          <header className="text-center pt-2 pb-1 -mb-6 md:mb-0 md:py-0">
             <h1 className="text-3xl sm:text-3xl md:text-[42px] font-medium leading-[1] md:leading-tight mb-0 px-2">
               <div className={`font-jawbreak uppercase ${primaryFont.className}`}>
                 You're Getting An Iron-Clad, Money-Back Guarantee
@@ -317,11 +423,7 @@ const Content: React.FC = () => {
                 We know you’ll love your VNSH gear, which is why we’re happy to extend you these
                 iron-clad guarantees.
               </p>
-              <p>
-                So if you want the comfiest holster on earth … plus a second one totally FREE on the
-                house…
-              </p>
-              <p>Plus… get a FREE VNSH Holster with it…</p>
+              <p>So if you want the comfiest holster on earth … plus a FREE Shockwave Torch.</p>
               <p id="package-selection" className="text-lg md:text-xl font-medium mb-8">
                 Then you owe it to yourself to grab this deal now!
               </p>

@@ -5,7 +5,7 @@ import { primaryFont } from '@/app/fonts';
 const AddToCartButton = () => {
   return (
     <div
-      className={`flex flex-row items-center justify-center p-3 md:p-1 bg-white max-w-4xl mx-auto mt-2 md:mt-3 w-full ${primaryFont.className}`}
+      className={`flex flex-row items-center justify-center p-0 md:p-1 bg-white max-w-4xl mx-auto mt-2 md:mt-3 w-full ${primaryFont.className}`}
     >
       <div className="w-[50%] sm:w-[38%]">
         <Link
@@ -16,12 +16,12 @@ const AddToCartButton = () => {
         </Link>
       </div>
       <div className="w-[50%] sm:w-[32%] text-center">
-        <span className="text-2xl sm:text-3xl font-medium tracking-wide font-jawbreak leading-tight sm:leading-[1.2] block">
-          BOGO
+        <span className="text-xl sm:text-3xl font-medium tracking-wide font-jawbreak leading-tight sm:leading-[1.2] block">
+          Summer Special
         </span>
         <div className="mt-1 sm:mt-2">
-          <span className="pr-3 font-medium text-[22px] sm:text-3xl">$79.97</span>
-          <span className="text-[#ff0000] line-through text-[22px] sm:text-3xl">$159.97</span>
+          <span className="pr-3 text-[#ff0000] line-through text-[22px] sm:text-3xl">$139.97</span>
+          <span className="font-medium text-[22px] sm:text-3xl">$79.97</span>
         </div>
       </div>
     </div>

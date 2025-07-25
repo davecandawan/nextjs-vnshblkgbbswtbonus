@@ -6,7 +6,7 @@ import Image from 'next/image';
 const Slideshow: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
 
   const slides = [
     {
@@ -16,6 +16,10 @@ const Slideshow: React.FC = () => {
     {
       image: '/contentimages/VNSH_Black_Holster_Top_Hero2.webp',
       alt: 'Black Holster Image 2',
+    },
+    {
+      image: '/contentimages/SWTDesktop.webp',
+      alt: 'SWT Bonus',
     },
     {
       image: '/contentimages/VNSH_Black_Holster_Top_Hero5.webp',
@@ -37,42 +41,18 @@ const Slideshow: React.FC = () => {
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
-    resetTimer();
   };
 
   const nextSlide = () => {
     setCurrentSlide(prev => (prev === slides.length - 1 ? 0 : prev + 1));
-    resetTimer();
   };
 
   const prevSlide = () => {
     setCurrentSlide(prev => (prev === 0 ? slides.length - 1 : prev - 1));
-    resetTimer();
-  };
-
-  const startAutoChange = () => {
-    intervalRef.current = setInterval(() => {
-      setCurrentSlide(prev => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 4000);
-  };
-
-  const resetTimer = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    startAutoChange();
   };
 
   useEffect(() => {
     setIsMounted(true);
-    const timeout = setTimeout(() => {
-      startAutoChange();
-    }, 5000);
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      clearTimeout(timeout);
-    };
   }, []);
 
   if (!isMounted) {
@@ -122,7 +102,7 @@ const Slideshow: React.FC = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`flex-shrink-0 w-14 h-10.5 sm:w-14 sm:h-10.5 md:w-18 md:h-13.5 overflow-visible transition-all bg-transparent p-0 border-0 ${
+            className={`flex-shrink-0 w-10 h-7 sm:w-14 sm:h-10.5 md:w-18 md:h-13.5 overflow-visible transition-all bg-transparent p-0 border-0 ${
               currentSlide === index ? 'ring-2 ring-gray-300' : 'opacity-70 hover:opacity-100'
             }`}
             aria-label={`Go to slide ${index + 1}`}

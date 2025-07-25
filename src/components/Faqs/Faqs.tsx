@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { primaryFont } from '@/app/fonts';
 
 interface FaqItemProps {
   question: string;
@@ -28,10 +29,10 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer, isOpen, onClick }) 
         }}
       >
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center justify-center h-5 w-5 min-w-[1.25rem] rounded-full bg-[#10d467] text-white font-bold text-sm leading-none">
+          <span className="inline-flex items-center justify-center h-6 w-6 min-w-[1.25rem] rounded-full bg-[#10d467] text-white font-extrabold text-base leading-none">
             ?
           </span>
-          <span className="text-white font-bold text-left text-base sm:text-lg md:text-[22px] font-stratum">
+          <span className="text-white font-bold text-left text-lg sm:text-lg md:text-[22px] font-stratum">
             {question}
           </span>
         </div>
@@ -49,11 +50,11 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer, isOpen, onClick }) 
         style={{ borderTop: isOpen ? 'none' : 'none' }}
       >
         {typeof answer === 'string' ? (
-          <p className="!text-[15px] md:!text-[18px] !px-4 !text-gray-200 !leading-relaxed !py-4">
+          <p className="!text-[18px] md:!text-[20px] !px-4 !text-gray-200 !leading-relaxed !py-4">
             {answer}
           </p>
         ) : (
-          <div className="!text-[15px] md:!text-[18px] !px-4 !text-gray-200 !leading-relaxed !space-y-1">
+          <div className="!text-[18px] md:!text-[20px] !px-4 !text-gray-200 !leading-relaxed !space-y-1">
             {answer}
           </div>
         )}
@@ -101,15 +102,24 @@ const faqData: FaqData[] = [
 
 const Faqs: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexTorch, setOpenIndexTorch] = useState<number | null>(null);
 
   const handleFaqClick = (index: number) => {
     setOpenIndex(prevIndex => (prevIndex === index ? null : index));
+  };
+  const handleTorchFaqClick = (index: number) => {
+    setOpenIndexTorch(prevIndex => (prevIndex === index ? null : index));
   };
 
   return (
     <div className="w-full bg-[#242833] py-5 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="space-y-3">
+        <h2 className="text-3xl md:text-[42px] font-bold text-white mb-12 mt-0 text-center">
+          <div className={`font-jawbreak uppercase ${primaryFont?.className || ''}`}>
+            VNSH Holster
+          </div>
+        </h2>
+        <div className="space-y-3 mb-20">
           {faqData.map((item, index) => (
             <FaqItem
               key={index}
@@ -117,6 +127,46 @@ const Faqs: React.FC = () => {
               answer={item.answer}
               isOpen={openIndex === index}
               onClick={() => handleFaqClick(index)}
+            />
+          ))}
+        </div>
+
+        <h2 className="text-3xl md:text-[42px] font-bold text-white mb-12 mt-0 text-center">
+          <div className={`font-jawbreak uppercase ${primaryFont?.className || ''}`}>
+            Pain Safari Shockwave Torch
+          </div>
+        </h2>
+        <div className="space-y-3">
+          {[
+            {
+              question: 'Q: Can This Kill Someone?',
+              answer:
+                'A: Maybe! While it’s a non-lethal weapon, it is dangerous enough to that it could kill someone if they had a pre-existing condition.',
+            },
+            {
+              question: 'Q: How Much Does It Weigh?',
+              answer: 'A: Just 5 ounces!',
+            },
+            {
+              question: 'Q: Does it use AA batteries?',
+              answer:
+                'A: Even better, it has an integrated rechargeable battery, no need to buy batteries.',
+            },
+            {
+              question: 'Q: What light settings does it have?',
+              answer: 'A: High, Low, and Emergency Strobe.',
+            },
+            {
+              question: 'Q: Is It Waterproof?',
+              answer: 'A: It is water resistant.',
+            },
+          ].map((item, idx) => (
+            <FaqItem
+              key={item.question}
+              question={item.question}
+              answer={item.answer}
+              isOpen={openIndexTorch === idx}
+              onClick={() => handleTorchFaqClick(idx)}
             />
           ))}
         </div>
